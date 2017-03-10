@@ -11,9 +11,9 @@
   },
   "author": "",
   "license": "ISC",
-
   "dependencies": {
     "botkit": "^0.2.2",
+    "jfs": "^0.2.6",
     "querystring": "^0.2.0"
   }
 }
