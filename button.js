@@ -1,7 +1,8 @@
-/*  Uses the slack button feature to offer a real time bot to multiple teams */
+/* Uses the slack button feature to offer a real time bot to multiple teams */
 const querystring = require("querystring");
 const Botkit = require("botkit");
 const os = require("os");
+var fs = require('fs');
 
 // Heroku上で動かすため、port指定の箇所を !process.env.port から !process.env.PORT に変更
 if (!process.env.clientId ) {
@@ -37,12 +38,12 @@ controller.setupWebserver(process.env.PORT,function(err,webserver) {
     if (err) {
       res.status(500).send('ERROR: ' + err);
     } else {
-      res.send('Success! 1');
+      res.send('Success!');
     }
   });
 });
 
-// just a simple way to make sure we don't
+// just a simple way to make sure we dont
 // connect to the RTM twice for the same team
 var _bots = {};
 function trackBot(bot) {
@@ -100,7 +101,7 @@ controller.hears("how are you", "direct_message,direct_mention,mention", (bot, m
   bot.reply(message, {
     "text": "Great, you?",
     "attachments": [{
-      "fallback": "Couldn't reply.",
+      "fallback": "Couldnt reply.",
       "callback_id": "greeting",
       "attachment_type": 'default',
       "actions": [
@@ -136,6 +137,11 @@ controller.on('interactive_message_callback', function(bot, message) {
     } else {
       text = "What's wrong?"
     }
+
+var data = {
+    anser: text,
+};
+fs.writeFile('hoge.json', JSON.stringify(data, null, '    '));
 
     bot.replyInteractive(message, {
       "text": text
