@@ -2,7 +2,6 @@
 const querystring = require("querystring");
 const Botkit = require("botkit");
 const os = require("os");
-var fs = require('fs');
 
 // Heroku上で動かすため、port指定の箇所を !process.env.port から !process.env.PORT に変更
 if (!process.env.clientId ) {
@@ -137,11 +136,6 @@ controller.on('interactive_message_callback', function(bot, message) {
     } else {
       text = "What s wrong? 3"
     }
-
-var data = {
-    anser: text,
-};
-fs.writeFile('hoge.json', JSON.stringify(data, null, '    '));
 
     bot.replyInteractive(message, {
       "text": text
