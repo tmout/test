@@ -1,4 +1,4 @@
-/* Uses the slack button feature to offer a real time bot to multiple teams */
+/*  Uses the slack button feature to offer a real time bot to multiple teams */
 const querystring = require("querystring");
 const Botkit = require("botkit");
 const os = require("os");
@@ -37,7 +37,7 @@ controller.setupWebserver(process.env.PORT,function(err,webserver) {
     if (err) {
       res.status(500).send('ERROR: ' + err);
     } else {
-      res.send('Success!');
+      res.send('Success! 1');
     }
   });
 });
