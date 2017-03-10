@@ -133,9 +133,9 @@ controller.on('interactive_message_callback', function(bot, message) {
     var text = ""
 
     if (name == "good") {
-      text = "That's good 2."
+      text = "That s good 3."
     } else {
-      text = "What's wrong? 2"
+      text = "What s wrong? 3"
     }
 
 var data = {
