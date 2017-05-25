@@ -3,6 +3,7 @@ const querystring = require("querystring");
 const Botkit = require("botkit");
 const os = require("os");
 
+
 // Heroku上で動かすため、port指定の箇所を !process.env.port から !process.env.PORT に変更
 if (!process.env.clientId ) {
   console.log('Error: Specify clientId in environment');
